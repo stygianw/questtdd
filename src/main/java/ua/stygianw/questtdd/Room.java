@@ -3,6 +3,7 @@ package ua.stygianw.questtdd;
 public class Room {
 
 	private String description;
+	private String description2;
 	private Room leftRoom;
 	private Room rightRoom;
 	private Room forwardRoom;

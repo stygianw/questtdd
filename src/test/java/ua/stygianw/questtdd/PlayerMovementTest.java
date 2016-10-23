@@ -10,7 +10,7 @@ import ua.stygianw.questtdd.Room.RoomBuilder;
 public class PlayerMovementTest {
 	
 	
-	@SetUp
+	
 	public void setUp() {
 		
 	}
