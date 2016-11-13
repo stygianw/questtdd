@@ -1,9 +1,12 @@
 package ua.stygianw.questtdd;
 
-public class Player {
+public class Player extends Being {
 
 	private Room room;
-	private String name;
+	private Weapon weapon;
+	public Player(String name) {
+		super(name, 20, 100);
+	}
 
 	public void setRoom(Room room) {
 		this.room = room;
@@ -18,12 +21,30 @@ public class Player {
 		return this.room;
 	}
 
-	public String getName() {
-		return name;
+	public void moveLeft() {
+		this.room = this.room.getLeftRoom();
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void moveBackwards() {
+		this.room = this.room.getBackwardRoom();
 	}
 
+	public void moveRight() {
+		this.room = this.room.getRightRoom();
+	}
+
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
+	
+	@Override
+	public int getHitPower() {
+		return this.weapon != null ? this.hitPower + this.weapon.getDamage() : this.hitPower;
+	}
+
+	public void applyRoomItem() {
+		if(this.room.getItem() != null) {
+			this.room.getItem().useItem(this);
+		}
+	}
 }
